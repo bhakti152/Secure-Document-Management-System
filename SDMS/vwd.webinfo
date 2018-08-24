@@ -1,0 +1,10 @@
+﻿<?xml version="1.0"?>
+<!-- 
+  Visual Studio global web project settings.
+-->
+<VisualWebDeveloper>
+
+  <comReferences>
+    <reference Name="interop.microsoft.office.interop.word" ID="{00020905-0000-0000-C000-000000000046}\8.6\0"/>
+  </comReferences>
+</VisualWebDeveloper>

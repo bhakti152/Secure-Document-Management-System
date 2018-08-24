@@ -1,0 +1,126 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+
+        <title>SDMS</title>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css"/>
+        <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css"/>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+        <style>
+            html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
+            .w3-sidenav a,.w3-sidenav h4 {padding: 12px;}
+            .w3-bar a {
+                padding-top: 12px;
+                padding-bottom: 12px;
+            }
+        </style>    
+        <asp:ContentPlaceHolder id="head" runat="server">
+
+        </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <!-- Navbar -->
+            <div class="w3-top">
+              <div class="w3-bar w3-theme w3-top w3-left-align w3-large">
+                <a class="w3-bar-item w3-button w3-opennav w3-right w3-hide-large w3-hover-white w3-large w3-theme-l1" href="javascript:void(0)" onclick="w3_open()"><i class="fa fa-bars"></i></a>
+                <a href='loginForm.aspx' class="w3-bar-item w3-button w3-theme-l1">Login</a>
+                <a href='signUpForm.aspx' class="w3-bar-item w3-button w3-hide-small w3-hover-white">SignUp</a>
+              </div>
+            </div>
+
+         
+                <br /><br /><br /><br /><br /><br />
+                <div>
+                    <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+
+              
+
+        
+              <!-- Pagination -->
+              <div class="w3-center w3-padding-jumbo">
+                <div class="w3-bar">
+                 
+               
+                </div>
+              </div>
+
+              <footer id="myFooter">
+                <div class="w3-container w3-theme-l2 w3-padding-32">
+                  
+                </div>
+
+                <div class="w3-container w3-theme-l1">
+                 
+                </div>
+              </footer>
+
+            <!-- END MAIN -->
+            
+
+            <script>
+                // Get the Sidenav
+                var mySidenav = document.getElementById("mySidenav");
+
+                // Get the DIV with overlay effect
+                var overlayBg = document.getElementById("myOverlay");
+
+                // Toggle between showing and hiding the sidenav, and add overlay effect
+                function w3_open() {
+                    if (mySidenav.style.display === 'block') {
+                        mySidenav.style.display = 'none';
+                        overlayBg.style.display = "none";
+                    } else {
+                        mySidenav.style.display = 'block';
+                        overlayBg.style.display = "block";
+                    }
+                }
+
+                // Close the sidenav with the close button
+                function w3_close() {
+                    mySidenav.style.display = "none";
+                    overlayBg.style.display = "none";
+                }
+            </script>
+
+    
+    </form>
+    <script type="text/javascript">
+        function OnTreeClick(evt) {
+            var src = window.event != window.undefined ? window.event.srcElement : evt.target;
+            var nodeClick = src.tagName.toLowerCase() == "a";
+            if (nodeClick) {
+                //innerText works in IE but fails in Firefox (I'm sick of browser anomalies), so use innerHTML as well
+                var nodeText = src.innerText || src.innerHTML;
+                var nodeValue = GetNodeValue(src);
+                alert("Text: " + nodeText + "," + "Value: " + nodeValue);
+                document.getElementById("TextBox1").value = nodeValue;
+
+                return true; //comment this if you want postback on node click
+            }
+        }
+
+        function GetNodeValue(node) {
+            var nodeValue = "";
+            var nodePath = node.href.substring(node.href.indexOf(",") + 2, node.href.length - 2);
+            var nodeValues = nodePath.split("\\");
+            if (nodeValues.length > 1)
+                nodeValue = nodeValues[nodeValues.length - 1];
+            else
+                nodeValue = nodeValues[0].substr(1);
+
+            return nodeValue;
+        }
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,48 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage2.master.cs" Inherits="MasterPage2" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" id="bg1" runat="server" style="background-image:url('Images/pattern1.jpg')">
+<head runat="server">
+    <title>SDMS</title>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body id="bg2" runat="server">
+    <form id="form1" runat="server">
+    
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+        <asp:TextBox ID="TextBox1" runat="server" ></asp:TextBox>
+        <script type="text/javascript">
+                function OnTreeClick(evt) {
+                    var src = window.event != window.undefined ? window.event.srcElement : evt.target;
+                    var nodeClick = src.tagName.toLowerCase() == "a";
+                    if (nodeClick) {
+                        //innerText works in IE but fails in Firefox (I'm sick of browser anomalies), so use innerHTML as well
+                        var nodeText = src.innerText || src.innerHTML;
+                        var nodeValue = GetNodeValue(src);
+                        //alert("Text: " + nodeText + "," + "Value: " + nodeValue);
+                        document.getElementById("TextBox1").value = nodeValue;
+
+                        return true; //comment this if you want postback on node click
+                    }
+                }
+
+                function GetNodeValue(node) {
+                    var nodeValue = "";
+                    var nodePath = node.href.substring(node.href.indexOf(",") + 2, node.href.length - 2);
+                    var nodeValues = nodePath.split("\\");
+                    if (nodeValues.length > 1)
+                        nodeValue = nodeValues[nodeValues.length - 1];
+                    else
+                        nodeValue = nodeValues[0].substr(1);
+
+                    return nodeValue;
+                }
+        </script>
+    
+    </form>
+</body>
+</html>

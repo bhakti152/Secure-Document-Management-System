@@ -1,0 +1,132 @@
+body{
+	font-family:arial;
+	font-size:9pt;
+}
+.TreeContainer {
+	border: solid 0px red;
+	width: 350px;
+	height: 400px;
+	overflow-y: auto;
+	padding: 10px;
+}
+
+	.TreeContainer .ParentPlace {
+		border: solid 0px silver;
+		padding: 5px;
+		font-size: 10pt;
+		font-family: 'Segoe UI';
+		width:auto;
+	}
+		.TreeContainer .ParentPlace span {
+			float:left;
+			border:dashed 2px silver;
+			padding:5px;
+			border-top-right-radius:20px;
+			border-bottom-right-radius:20px;
+		}
+	.TreeContainer .MyPlace {
+		border: solid 0px silver;
+		padding: 5px;
+		font-size: 10pt;
+		font-family: 'Segoe UI';
+		width:auto;
+	}
+	.TreeContainer .MyPlace span {
+			float:left;
+			border:dashed 2px silver;
+			padding:5px;
+			border-top-right-radius:20px;
+			border-bottom-right-radius:20px;
+		}
+
+	.TreeContainer ul.tree,
+	ul.tree ul {
+		list-style-type: none;
+		background: url(Images/vline.png) repeat-y;
+		margin: 0;
+		padding: 0;
+		cursor: pointer;
+		border: solid 0px black;
+		-webkit-touch-callout: none;
+		-webkit-user-select: none;
+		-khtml-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+		margin-left:5px;
+		margin-top:0px;
+	}
+
+		.TreeContainer ul.tree ul {
+			margin-left: 10px;
+			cursor: pointer;
+			-webkit-touch-callout: none;
+			-webkit-user-select: none;
+			-khtml-user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
+			user-select: none;
+		}
+
+		.TreeContainer ul.tree li {
+			margin: 0;
+			padding: 0 12px;
+			line-height: 20px;
+			background: url(Images/node.png) no-repeat;
+			cursor: pointer;
+			-webkit-touch-callout: none;
+			-webkit-user-select: none;
+			-khtml-user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
+			user-select: none;
+		}
+
+			.TreeContainer ul.tree li span {
+				background-color: green;
+				padding: 2px 6px;
+				border-radius: 10px;
+				color: white;
+			}
+			.TreeContainer ul.tree li a {
+				/*background-color: green;
+				padding: 2px 6px;
+				border-radius: 10px;
+				color: white;*/
+			}
+			.selected {
+				background-color: green;
+				padding: 2px 6px;
+				border-radius: 10px;
+				color: white;
+			}
+			.selected:hover {
+			  color:yellow;
+			}
+			
+			
+			.TreeContainer ul.tree li.last {
+				background: url(Images/lastnode.png) no-repeat;
+				cursor: pointer;
+				-webkit-touch-callout: none;
+				-webkit-user-select: none;
+				-khtml-user-select: none;
+				-moz-user-select: none;
+				-ms-user-select: none;
+				user-select: none;
+			}
+
+			.TreeContainer ul.tree li:last-child {
+				background: #fff url(Images/lastnode.png) no-repeat;
+				cursor: pointer;
+				-webkit-touch-callout: none;
+				-webkit-user-select: none;
+				-khtml-user-select: none;
+				-moz-user-select: none;
+				-ms-user-select: none;
+				user-select: none;
+			}
+
+		.TreeContainer ul.tree div:hover {
+			text-decoration: underline;
+		}
